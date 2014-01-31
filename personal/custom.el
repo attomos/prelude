@@ -1,4 +1,4 @@
-(prelude-require-packages '(motion-mode ))
+(prelude-require-packages '(motion-mode rinari))
 
 (defun web-mode-hook ()
   "Hooks for Web mode."
@@ -8,6 +8,7 @@
   (setq web-mode-indent-style 2))
 
 (add-hook 'web-mode-hook 'web-mode-hook)
+
 
 (setq js-indent-level 2)
 
@@ -75,6 +76,5 @@
 (define-key motion-mode-map (kbd "C-c C-d") (lambda () (interactive) (motion-execute-rake-command "device")))
 (define-key motion-mode-map (kbd "C-c C-o") 'motion-dash-at-point)
 (define-key motion-mode-map (kbd "C-c C-p") 'motion-convert-code-region)
-
 
 ;;; custom.el ends here
