@@ -1,3 +1,5 @@
+(prelude-require-packages '(motion-mode ))
+
 (defun web-mode-hook ()
   "Hooks for Web mode."
   (setq web-mode-markup-indent-offset 2)
@@ -63,4 +65,16 @@
 (key-chord-define-global "4r"     "$")
 (key-chord-define-global "()"     "()\C-b")
 (key-chord-define-global "{}"     "{\n\n}\C-p\t")
+
+
+;; motion-mode
+(require 'motion-mode)
+(add-hook 'ruby-mode-hook 'motion-recognize-project)
+
+(define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
+(define-key motion-mode-map (kbd "C-c C-d") (lambda () (interactive) (motion-execute-rake-command "device")))
+(define-key motion-mode-map (kbd "C-c C-o") 'motion-dash-at-point)
+(define-key motion-mode-map (kbd "C-c C-p") 'motion-convert-code-region)
+
+
 ;;; custom.el ends here
