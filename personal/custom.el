@@ -1,4 +1,4 @@
-(prelude-require-packages '(motion-mode rinari))
+(prelude-require-packages '(motion-mode rinari multi-term rsense))
 
 (defun web-mode-hook ()
   "Hooks for Web mode."
@@ -76,5 +76,13 @@
 (define-key motion-mode-map (kbd "C-c C-d") (lambda () (interactive) (motion-execute-rake-command "device")))
 (define-key motion-mode-map (kbd "C-c C-o") 'motion-dash-at-point)
 (define-key motion-mode-map (kbd "C-c C-p") 'motion-convert-code-region)
+
+(defun attomos/car-search-ring ()
+  "Insert the last word from search-ring."
+  (interactive)
+  (insert (car search-ring)))
+
+(global-set-key (kbd "C-x /") 'attomos/car-search-ring)
+
 
 ;;; custom.el ends here
